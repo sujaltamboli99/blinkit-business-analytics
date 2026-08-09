@@ -32,11 +32,28 @@ The project demonstrates the complete analytics workflow:
 
 ## Current Progress
 
-- [x] Project Setup
-- [x] Data Understanding
-- [ ] Data Cleaning
+- [X] Project Setup
+- [X] Data Understanding
+- [X] Data Cleaning
 - [ ] Database Design
 - [ ] MySQL Integration
 - [ ] SQL Analysis
 - [ ] Power BI Dashboard
 - [ ] Business Insights
+
+## Progress Log
+
+### Day 1 – Project Setup & Data Understanding
+- Created project structure
+- Configured Python virtual environment
+- Downloaded and organized Blinkit datasets
+- Performed data profiling
+- Identified missing values, duplicates, and data types
+- Created initial data dictionary
+
+### Day 2 – Data Cleaning & Validation
+- Converted date columns to proper datetime format
+- Validated primary keys
+- Validated relationships between datasets
+- Saved cleaned datasets
+- Prepared data for MySQL import
