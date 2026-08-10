@@ -2,60 +2,134 @@
 
 ## Overview
 
-The Blinkit Business Analytics project follows a normalized relational database design to ensure data integrity, reduce redundancy, and support efficient analytical queries.
+The Blinkit Business Analytics project uses a normalized relational database designed in MySQL.
+
+The schema consists of eight tables connected using primary keys and foreign keys.
 
 ---
 
 ## Tables
 
-1. customers
-2. orders
-3. order_items
-4. products
-5. inventory
-6. delivery_performance
-7. customer_feedback
-8. marketing_performance
+### 1. customers
+
+Stores customer information.
+
+**Primary Key**
+
+- customer_id
 
 ---
 
-## Primary Keys
+### 2. orders
 
-| Table | Primary Key |
-|--------|-------------|
-| customers | customer_id |
-| orders | order_id |
-| order_items | (order_id, product_id) |
-| products | product_id |
-| inventory | (product_id, date) |
-| delivery_performance | order_id |
-| customer_feedback | feedback_id |
-| marketing_performance | campaign_id |
+Stores customer orders.
 
----
+**Primary Key**
 
-## Foreign Keys
+- order_id
 
-| Table | Foreign Key | References |
-|--------|-------------|------------|
-| orders | customer_id | customers.customer_id |
-| order_items | order_id | orders.order_id |
-| order_items | product_id | products.product_id |
-| inventory | product_id | products.product_id |
-| delivery_performance | order_id | orders.order_id |
-| customer_feedback | customer_id | customers.customer_id |
-| customer_feedback | order_id | orders.order_id |
+**Foreign Key**
+
+- customer_id → customers.customer_id
 
 ---
 
-## Relationships
+### 3. products
 
-- Customers → Orders (1:M)
-- Orders → Order Items (1:M)
-- Products → Order Items (1:M)
-- Products → Inventory (1:M)
-- Orders → Delivery Performance (1:1)
-- Customers → Customer Feedback (1:M)
-- Orders → Customer Feedback (1:1)
+Stores product details.
 
-Marketing Performance is an independent analytical table in the current dataset and has no foreign key relationships.
+**Primary Key**
+
+- product_id
+
+---
+
+### 4. order_items
+
+Stores products included in each order.
+
+**Composite Primary Key**
+
+- order_id
+- product_id
+
+**Foreign Keys**
+
+- order_id → orders.order_id
+- product_id → products.product_id
+
+---
+
+### 5. inventory
+
+Stores daily inventory records.
+
+**Composite Primary Key**
+
+- product_id
+- inventory_date
+
+**Foreign Key**
+
+- product_id → products.product_id
+
+---
+
+### 6. delivery_performance
+
+Stores delivery metrics.
+
+**Primary Key**
+
+- order_id
+
+**Foreign Key**
+
+- order_id → orders.order_id
+
+---
+
+### 7. customer_feedback
+
+Stores customer reviews.
+
+**Primary Key**
+
+- feedback_id
+
+**Foreign Keys**
+
+- order_id → orders.order_id
+- customer_id → customers.customer_id
+
+---
+
+### 8. marketing_performance
+
+Stores marketing campaign performance.
+
+**Primary Key**
+
+- campaign_id
+
+No foreign keys.
+
+---
+
+# Database Relationships
+
+| Parent | Child | Relationship |
+|---------|-------|--------------|
+| Customers | Orders | 1 : Many |
+| Orders | Order_Items | 1 : Many |
+| Products | Order_Items | 1 : Many |
+| Products | Inventory | 1 : Many |
+| Orders | Delivery_Performance | 1 : 1 |
+| Customers | Customer_Feedback | 1 : Many |
+| Orders | Customer_Feedback | 1 : Many |
+
+---
+
+# ER Diagram
+
+![ER Diagram](ER_Diagram_Blinkit.png)

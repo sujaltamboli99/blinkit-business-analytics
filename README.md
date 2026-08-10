@@ -1,35 +1,40 @@
 # 🛒 Blinkit Business Analytics
 
-A production-style end-to-end Data Analytics project that analyzes Blinkit's retail operations using Python, MySQL, SQL, and Power BI. This project demonstrates the complete analytics workflow from raw CSV data to business insights and interactive dashboards.
+A production-style end-to-end Data Analytics project that analyzes Blinkit's retail operations using **Python, MySQL, SQL, and Power BI**. The project demonstrates the complete analytics workflow—from raw CSV datasets to business insights through data cleaning, database design, SQL analysis, and interactive dashboards.
 
 ---
 
-## 📌 Project Objective
+# 📌 Project Objective
 
-The objective of this project is to:
+The primary objective of this project is to:
 
-- Analyze Blinkit's business performance
-- Design a normalized relational database
-- Perform data cleaning and validation
-- Execute SQL-based business analysis
-- Build interactive Power BI dashboards
-- Generate actionable business insights
+- Analyze Blinkit's business performance using real-world retail data.
+- Design a normalized relational database.
+- Perform data cleaning and validation.
+- Import cleaned data into MySQL.
+- Execute SQL-based business analysis.
+- Build interactive Power BI dashboards.
+- Generate actionable business insights.
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-- Python (Pandas, NumPy)
+- Python
+- Pandas
+- NumPy
 - Jupyter Notebook
 - MySQL
 - MySQL Workbench
 - SQL
 - Power BI
-- Git & GitHub
+- Git
+- GitHub
+- VS Code
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 blinkit-business-analytics/
@@ -44,10 +49,15 @@ blinkit-business-analytics/
 │   └── 02_data_cleaning.ipynb
 │
 ├── sql/
+│   ├── 01_create_database.sql
+│   └── 02_create_tables.sql
 │
 ├── docs/
+│   ├── ER_Diagram_Blinkit.png
 │   ├── data_dictionary.md
 │   └── database_design.md
+│
+├── dashboard/
 │
 ├── images/
 │
@@ -59,9 +69,9 @@ blinkit-business-analytics/
 
 ---
 
-## 📊 Dataset
+# 📊 Dataset
 
-This project uses a publicly available Blinkit retail dataset and additional supporting datasets representing:
+This project uses a publicly available Blinkit retail dataset and supporting datasets representing:
 
 - Customers
 - Orders
@@ -74,64 +84,131 @@ This project uses a publicly available Blinkit retail dataset and additional sup
 
 ---
 
-## 🚀 Development Progress
+# 🗄️ Database Schema
 
-### ✅ Day 1 – Project Setup & Data Understanding
+The project follows a normalized relational database design consisting of **8 tables**.
 
-- Project structure created
-- Virtual environment configured
-- Dataset downloaded and organized
-- Initial data profiling completed
-- Data dictionary created
+### Tables
 
-### ✅ Day 2 – Data Cleaning & Validation
+- Customers
+- Orders
+- Products
+- Order_Items
+- Inventory
+- Delivery_Performance
+- Customer_Feedback
+- Marketing_Performance
+
+---
+
+# 📊 Entity Relationship Diagram (ERD)
+
+The database schema was designed in **MySQL Workbench** using primary keys, foreign keys, and normalized relationships.
+
+> **ER Diagram**
+
+![ER Diagram](docs/ER_Diagram_Blinkit.png)
+
+---
+
+# 🚀 Development Progress
+
+## ✅ Day 1 – Project Setup & Data Understanding
+
+- Created project folder structure
+- Configured Python virtual environment
+- Downloaded and organized datasets
+- Performed initial data profiling
+- Created data dictionary
+
+---
+
+## ✅ Day 2 – Data Cleaning & Validation
 
 - Converted date columns to appropriate datetime formats
+- Checked missing values
+- Removed duplicate records
 - Validated primary keys
 - Validated foreign key relationships
-- Verified composite keys
+- Identified composite keys
 - Exported cleaned datasets
-- Prepared data for MySQL integration
-
-### ✅ Day 3 – Database Design
-
-- Reverse engineered database schema
-- Identified primary and foreign keys
-- Validated entity relationships
-- Designed normalized relational model
-- Planned ER diagram generation using MySQL Workbench
 
 ---
 
-## 📅 Upcoming Work
+## ✅ Day 3 – Database Design
 
-- Create MySQL database
-- Write SQL schema
-- Import cleaned datasets
-- Perform SQL business analysis
+- Created MySQL database
+- Designed normalized database schema
+- Created all 8 relational tables
+- Implemented primary keys
+- Implemented foreign keys
+- Implemented composite keys
+- Generated ER Diagram using MySQL Workbench
+- Validated relationships between tables
+
+---
+
+# 📅 Upcoming Work
+
+- Import cleaned CSV files into MySQL
+- Validate imported data
+- Write SQL business analysis queries
+- Create SQL views
 - Build Power BI dashboard
 - Generate business insights
+- Complete project documentation
 
 ---
 
-## 📈 Current Status
+# 📈 Current Project Status
 
 - [x] Project Setup
 - [x] Data Understanding
 - [x] Data Cleaning
 - [x] Data Validation
 - [x] Database Design
-- [ ] MySQL Schema
-- [ ] SQL Analysis
+- [x] MySQL Database Schema
+- [x] ER Diagram
+- [ ] Data Import into MySQL
+- [ ] SQL Business Analysis
 - [ ] Power BI Dashboard
-- [ ] Business Insights
+- [ ] Business Insights Report
 
 ---
 
-## 👨‍💻 Author
+# 🎯 Project Roadmap
+
+```
+Project Setup
+      ✅
+Data Understanding
+      ✅
+Data Cleaning
+      ✅
+Database Design
+      ✅
+ER Diagram
+      ✅
+Data Import
+      ⏳
+SQL Analysis
+      ⏳
+Power BI Dashboard
+      ⏳
+Business Insights
+      ⏳
+```
+
+---
+
+# 👨‍💻 Author
 
 **Sujal Tamboli**
 
-B.Tech Computer Science Engineering
+B.Tech – Computer Science & Engineering
 
 Walchand Institute of Technology, Solapur
+
+---
+
+⭐ If you found this project helpful, consider giving the repository a **Star**.
