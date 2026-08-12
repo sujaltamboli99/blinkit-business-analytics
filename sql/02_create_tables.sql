@@ -14,7 +14,7 @@ create table customers(
 
 
 create table orders(
-    order_id int primary key,
+    order_id bigint primary key,
     customer_id int not null,
     order_date datetime not null,
     promised_delivery_date datetime not null,
@@ -22,7 +22,7 @@ create table orders(
     payment_method varchar(30) not null,
     delivery_status varchar(30) not null,
     order_total decimal(10,2) not null,
-    delivery_partner_id int not null,
+    delivery_partner_id bigint not null,
     store_id int not null,
 
     constraint fk_orders_customer
@@ -45,7 +45,7 @@ create table products(
 );
 
 create table order_items(
-    order_id int not null,
+    order_id bigint not null,
     product_id int not null,
     quantity int not null,
     unit_price decimal(10,2) not null,
@@ -63,7 +63,7 @@ create table inventory(
     product_id int not null,
     inventory_date date not null,
     stock_received int not null default 0,
-    stock_sold int not null default 0,
+    damaged_stock int not null default 0,
 
     constraint pk_inventory primary key (product_id,inventory_date),
     constraint fk_inventory_product
@@ -73,8 +73,8 @@ create table inventory(
 
 
 CREATE TABLE delivery_performance (
-    order_id INT PRIMARY KEY,
-    delivery_partner_id INT NOT NULL,
+    order_id bigint PRIMARY KEY,
+    delivery_partner_id bigint NOT NULL,
     promised_time DATETIME NOT NULL,
     actual_time DATETIME NOT NULL,
     delivery_time_minutes INT NOT NULL,
@@ -88,13 +88,17 @@ CREATE TABLE delivery_performance (
 );
 
 CREATE TABLE customer_feedback (
-    feedback_id INT PRIMARY KEY,
-    order_id INT NOT NULL,
+    feedback_id INT NOT NULL,
+    order_id BIGINT NOT NULL,
     customer_id INT NOT NULL,
+    rating INT NOT NULL,
     feedback_text VARCHAR(200) NOT NULL,
     feedback_category VARCHAR(100) NOT NULL,
     sentiment VARCHAR(50) NOT NULL,
     feedback_date DATE NOT NULL,
+
+    CONSTRAINT pk_customer_feedback
+        PRIMARY KEY (feedback_id),
 
     CONSTRAINT fk_feedback_order
         FOREIGN KEY (order_id)
